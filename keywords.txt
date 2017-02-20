@@ -1,0 +1,40 @@
+#######################################
+# Syntax Coloring Map For MagAlpha-Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MagAlpha	KEYWORD1
+MagAlphaSSI	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+end	KEYWORD2
+readAngle	KEYWORD2
+readAngleRaw	KEYWORD2
+readAngleRaw16	KEYWORD2
+readAngleRaw8	KEYWORD2
+readRegister	KEYWORD2
+writeRegister	KEYWORD2
+setSpiClockFrequency	KEYWORD2
+setSpiDataMode	KEYWORD2
+setSpiChipSelectPin	KEYWORD2
+convertRawAngleToDegree	KEYWORD2
+setSsiClockFrequency	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+magAlpha	KEYWORD2
+magAlphaSsi	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+MA_SPI_MODE_0	LITERAL1
+MA_SPI_MODE_3	LITERAL1
