@@ -111,8 +111,7 @@ uint8_t MagAlpha::readRegister(uint8_t address){
   digitalWrite(_spiChipSelectPin, HIGH);
   delayMicroseconds(1); //Wait for 1us (=1000 ns) to respect tIdleReg of 750ns before register readout
   digitalWrite(_spiChipSelectPin, LOW);
-  uint16_t result = SPI.transfer16(0x0000);
-  readbackRegisterValue = ((result & 0xFF00) >> 8);
+  readbackRegisterValue = ((SPI.transfer16(0x0000) & 0xFF00) >> 8);
   digitalWrite(_spiChipSelectPin, HIGH);
   delayMicroseconds(1); //Wait for 1us (=1000 ns) to respect tIdleReg of 750ns after register readout
   return readbackRegisterValue;
