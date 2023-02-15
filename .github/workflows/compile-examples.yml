@@ -54,6 +54,9 @@ jobs:
           - fqbn: arduino:samd:mkrvidor4000
             platforms: |
               - name: arduino:samd
+          - fqbn: arduino:mbed_rp2040:pico
+            platforms: |
+              - name: arduino:mbed_rp2040
           - fqbn: arduino:mbed_portenta:envie_m7
             platforms: |
               - name: arduino:mbed_portenta
