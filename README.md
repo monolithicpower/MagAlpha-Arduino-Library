@@ -1,5 +1,5 @@
 # MagAlpha library
-[![Compile Examples](https://github.com/monolithicpower/MagAlpha-Arduino-Library/workflows/Compile%20Examples/badge.svg)](https://github.com/monolithicpower/MagAlpha-Arduino-Library/actions?workflow=Compile+Examples)
+[![Compile Examples](https://github.com/monolithicpower/MagAlpha-Arduino-Library/actions/workflows/compile-examples.yml/badge.svg)](https://github.com/monolithicpower/MagAlpha-Arduino-Library/actions/workflows/compile-examples.yml)
 
 Arduino library for the MPS MagAlpha magnetic angle sensor.
 
