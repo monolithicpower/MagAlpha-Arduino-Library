@@ -36,6 +36,7 @@ void  MagAlpha::begin(int32_t spiSclkFrequency, uint8_t spiMode, uint8_t spiChip
 }
 
 void MagAlpha::end(){
+    SPI.endTransaction();
     SPI.end();
 }
 
@@ -132,12 +133,14 @@ uint8_t MagAlpha::writeRegister(uint8_t address, uint8_t value){
 
 void MagAlpha::setSpiClockFrequency(uint32_t speedMaximum){
     _speedMaximum = speedMaximum;
+    SPI.endTransaction();
     SPI.beginTransaction(SPISettings(_speedMaximum, MSBFIRST, _spiMode));
 }
 
 void MagAlpha::setSpiDataMode(uint8_t spiMode){
     _spiMode = spiMode;
-    SPI.setDataMode(_spiMode);
+    SPI.endTransaction();
+    SPI.beginTransaction(SPISettings(_speedMaximum, MSBFIRST, _spiMode));
 }
 
 void MagAlpha::setSpiChipSelectPin(uint8_t spiChipSelectPin){
@@ -167,6 +170,7 @@ void  MagAlphaSSI::begin(int32_t ssiSsckFrequency){
 }
 
 void MagAlphaSSI::end(){
+    SPI.endTransaction();
     SPI.end();
 }
 
@@ -234,6 +238,7 @@ uint16_t MagAlphaSSI::readAngleRaw(bool* error){
 
 void MagAlphaSSI::setSsiClockFrequency(uint32_t speedMaximum){
     _speedMaximum = speedMaximum;
+    SPI.endTransaction();
     SPI.beginTransaction(SPISettings(_speedMaximum, MSBFIRST, SSI_MODE));
 }
 
