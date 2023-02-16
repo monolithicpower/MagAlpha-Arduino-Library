@@ -25,7 +25,7 @@ void loop() {
   uint16_t angleRaw16;
   uint8_t angleRaw8;
 
-  Serial.println("Read Angle using differents methods:");
+  Serial.println("Read Angle using different methods:");
 
   //Read the angle in degree (Read 16-bit raw angle value and then convert it to the 0-360 degree range)
   angle = magAlpha.readAngle();
@@ -49,7 +49,7 @@ void loop() {
 
   //Read the angle (16-bit raw angle value) and check the parity bit to detect possible communication error
   bool error;
-  angleRaw16 = magAlpha.readAngleRaw16(&error);
+  angleRaw16 = magAlpha.readAngleRaw(&error);
   Serial.print("    magAlpha.readAngleRaw16(&error) = ");
   Serial.print(angleRaw16, DEC);
   if (error == true){
