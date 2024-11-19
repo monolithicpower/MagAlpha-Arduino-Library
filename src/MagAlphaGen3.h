@@ -50,6 +50,7 @@ public:
     uint8_t getSiliconId() override;
     uint8_t getSiliconRevision() override;
     uint8_t getRegisterMapRevision() override;
+};
 
 class MagAlphaSSIGen3: public MagAlphaSSI {};
 

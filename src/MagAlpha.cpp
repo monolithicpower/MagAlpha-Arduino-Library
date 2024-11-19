@@ -6,26 +6,9 @@
   ----> http://www.monolithicpower.com/Products/Position-Sensors/Products-Overview
   Written by Mathieu Kaelin for Monolithic Power Systems.
   MIT license, all text above must be included in any redistribution
- ****************************************************/
+****************************************************/
 
-#ifndef MAGALPHA_H
-#define MAGALPHA_H
+#include "MagAlpha.h"
 
-#if (ARDUINO >= 100)
-     #include "Arduino.h"
-#else
-     #include "WProgram.h"
-#endif
-#include "MagAlphaGen3.h"
-
-//SPI Mode: MagAlpha Gen3 support SPI mode 3 and 0 [SPI_MODE3, SPI_MODE0]
-#define MA_SPI_MODE_0       SPI_MODE0
-#define MA_SPI_MODE_3       SPI_MODE3
-
-class MagAlpha: public MagAlphaGen3 {
-public:
-     MagAlpha();
-};
-     
-
-#endif //MAGALPHA_H
+MagAlpha::MagAlpha(){
+}
