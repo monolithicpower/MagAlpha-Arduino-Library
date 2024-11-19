@@ -18,6 +18,10 @@
 #endif
 #include "MagAlphaGen3.h"
 
+//SPI Mode: MagAlpha Gen3 support SPI mode 3 and 0 [SPI_MODE3, SPI_MODE0]
+#define MA_SPI_MODE_0       SPI_MODE0
+#define MA_SPI_MODE_3       SPI_MODE3
+
 class MagAlpha: public MagAlphaGen3 {};
 
 #endif //MAGALPHA_H

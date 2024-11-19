@@ -20,7 +20,6 @@
 #else
      #include "WProgram.h"
 #endif
-// #include <SPI.h>
 #include "MagAlphaBase.h"
 
 class MagAlphaGen3: public MagAlphaSPI {
