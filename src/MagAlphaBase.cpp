@@ -89,9 +89,9 @@ void MagAlphaSPI::setSpiChipSelectPin(uint8_t spiChipSelectPin){
 uint16_t MagAlphaSPI::readAngleRaw16Quick(){
     uint16_t angle;
     digitalWrite(_spiChipSelectPin, LOW);
-    // angle = _spi->transfer16(0x0000); //Read 16-bit angle
-    spi0_hw->dr = 0x0000;
-    angle = spi0_hw->dr;
+    angle = _spi->transfer16(0x0000); //Read 16-bit angle
+    //spi0_hw->dr = 0x0000;
+    //angle = spi0_hw->dr;
     digitalWrite(_spiChipSelectPin, HIGH);
     return angle;
 }
@@ -101,6 +101,22 @@ uint16_t MagAlphaSPI::readAngleRaw16Quick(){
 /*====================================================================================*/
 MagAlphaSSI::MagAlphaSSI(){
 }
+
+void MagAlphaSSI::begin(){
+    _ssi = &SPI;
+    _clockFrequency = 1000000;
+    _ssi->begin();
+    _ssi->beginTransaction(SPISettings(_clockFrequency, MSBFIRST, MagAlphaSSIMode::MODE_B));
+}
+
+/*
+void MagAlphaSSI::begin(int32_t ssiSsckFrequency){
+    _ssi = &SPI;
+    _clockFrequency = ssiSsckFrequency;
+    _ssi->begin();
+    _ssi->beginTransaction(SPISettings(_clockFrequency, MSBFIRST, MagAlphaSSIMode::MODE_B));
+}
+*/
 
 void MagAlphaSSI::begin(SPIClass *ssi){
     begin(1000000, MagAlphaSSIMode::MODE_A, ssi);
@@ -196,7 +212,6 @@ uint8_t MagAlphaSSI::readAngleRaw8(){
     data = _ssi->transfer16(0);
     return (data & 0x7F80) >> 7;
 }
-
 
 /*====================================================================================*/
 /*============================== MagAlphaI2C =========================================*/

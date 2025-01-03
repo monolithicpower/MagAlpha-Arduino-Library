@@ -74,6 +74,9 @@ protected:
     // bool _featureSuppored;
 };
 
+/*====================================================================================*/
+/*============================== MagAlphaSPI =========================================*/
+/*====================================================================================*/
 class MagAlphaSPI : public MagAlphaBase {
 public:
     MagAlphaSPI();
@@ -91,9 +94,14 @@ protected:
     SPIClass *_spi;
 };
 
+/*====================================================================================*/
+/*============================== MagAlphaSSI =========================================*/
+/*====================================================================================*/
 class MagAlphaSSI : public MagAlphaBase {
 public:
     MagAlphaSSI();
+    void begin();
+    //void begin(int32_t ssiClkFrequency);
     void begin(SPIClass *ssi = &SPI);
     void begin(int32_t ssiSsckFrequency, SPIClass *ssi = &SPI);
     void begin(int32_t ssiSsckFrequency, MagAlphaSSIMode ssiMode, SPIClass *ssi = &SPI);
@@ -111,6 +119,9 @@ protected:
     SPIClass *_ssi;
 };
 
+/*====================================================================================*/
+/*============================== MagAlphaI2C =========================================*/
+/*====================================================================================*/
 class MagAlphaI2C : public MagAlphaBase {
 public:
     MagAlphaI2C();
@@ -125,4 +136,5 @@ protected:
     uint32_t _clockFrequency;
     TwoWire *_i2c;
 };
+
 #endif //MAGALPHABASE_H

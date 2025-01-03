@@ -11,13 +11,13 @@ For more information on the MagAlpha sensor family:
 * [MagAlpha Support Materials](http://www.monolithicpower.com/Design-Support/Position-Sensors-Design-Support)
 
 ## Supported sensors
-Supports all 3rd generation MagAlpha magnetic angle sensors from [Monolithic Power Systems](https://www.monolithicpower.com/).
+Supports all 3rd, 4th, 6th, 7th, 8th generation MagAlpha magnetic angle sensors from [Monolithic Power Systems](https://www.monolithicpower.com/).
 
 | Applications | Part Numbers |
 | ------------| ------------ |
 | Turning knob applications (potentiometer replacement) | MA800, MA820, MA850 |
 | Rotary encoders (optical encoder replacement, Servo motors, ...) | MA702, MA704, MA710, MA730 |
-| Position controlled motor drivers (FOC, ...) | MA302, MA310 |
+| Position controlled motor drivers (FOC, ...) | MA302, MA310, MA600 |
 | Motor commutation (hall switches replacement) | MA102 |
 
 
@@ -39,6 +39,7 @@ MIT license, all text above must be included in any redistribution.
 
 ### Serial communication
 All MagAlpha have a SPI communication interface. Some sensors like the MA702 also have an additional SSI (2-wire) interface.
+MagAlpha gen8 possess an I2C interface.
 
 #### SPI (4-wire interface)
 | Arduino  | MagAlpha |
@@ -53,6 +54,12 @@ All MagAlpha have a SPI communication interface. Some sensors like the MA702 als
 | -------- | -------- |
 | MISO     | SSD      |
 | SCK      | SSCK     |
+
+### I2C (2-wire interface)
+| Arduino  | MagAlpha |
+| -------- | -------- |
+| SCL      | SCL      |
+| SDA      | SDA      |
 
 #### Arduino SPI pin mapping
 | Arduino / Genuino Board | MOSI | MISO | SCK | CS  | Voltage Level |

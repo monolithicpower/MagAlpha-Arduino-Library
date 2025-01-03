@@ -16,16 +16,24 @@
 #else
      #include "WProgram.h"
 #endif
+#include <SPI.h>
 #include "MagAlphaGen3.h"
-
-//SPI Mode: MagAlpha Gen3 support SPI mode 3 and 0 [SPI_MODE3, SPI_MODE0]
+#include "MagAlphaPartProperties.h"
+ //SPI Mode: MagAlpha Gen3 support SPI mode 3 and 0 [SPI_MODE3, SPI_MODE0]
 #define MA_SPI_MODE_0       SPI_MODE0
 #define MA_SPI_MODE_3       SPI_MODE3
 
-class MagAlpha: public MagAlphaGen3 {
+/*====================================================================================*/
+/*========================== MagAlphaGen3 Legacy =====================================*/
+/*====================================================================================*/
+class MagAlpha : public MagAlphaGen3 {
 public:
-     MagAlpha();
+    MagAlpha();
+    void begin(uint8_t spiChipSelectPin);
+    void begin(int32_t spiSclkFrequency, uint8_t spiMode, uint8_t spiChipSelectPin);
+    void setSpiDataMode(uint8_t spiMode);
+    uint16_t readAngleRaw();
+    uint16_t readAngleRaw(bool* error);
 };
-     
 
 #endif //MAGALPHA_H

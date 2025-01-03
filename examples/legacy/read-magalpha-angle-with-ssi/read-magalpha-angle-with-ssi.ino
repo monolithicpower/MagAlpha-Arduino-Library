@@ -1,4 +1,4 @@
-#include <MagAlpha.h>
+#include <MagAlphaBase.h>
 
 //Check https://www.arduino.cc/en/reference/SPI for SPI signals connections
 //Connect SSI SSCK to SPI SCLK signal

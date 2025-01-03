@@ -139,6 +139,7 @@ void MagAlphaGen4::writeRegisterBurst(uint8_t address, uint8_t valueArray[], uin
     delayMicroseconds(1); //Wait for 1us (=1000 ns) to respect tIdleReg of 120ns after register readout
 }
 
+/*
 uint16_t MagAlphaGen4::detectSensorGeneration(){
     uint16_t chipId;
     digitalWrite(_spiChipSelectPin, LOW);
@@ -151,6 +152,7 @@ uint16_t MagAlphaGen4::detectSensorGeneration(){
     delayMicroseconds(1); //Wait for 1us (=1000 ns) to respect tIdleReg of 120ns after register readout
     return chipId;
 }
+*/
 
 uint16_t MagAlphaGen4::getZero()
 {

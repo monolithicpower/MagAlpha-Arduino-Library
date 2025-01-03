@@ -160,10 +160,12 @@ void MagAlphaGen7::writeRegisterBurst(uint8_t address, uint8_t valueArray[], uin
     writeRegisterBurst(address, valueArray, numberOfRegister, &error, &inversion, &wrongHandshaking);
 }
 
+/*
 uint16_t MagAlphaGen7::detectSensorGeneration(){
     bool error, inversion;
     return readRegister(REG_PID, &error, &inversion) >> 4;
 }
+*/
 
 uint16_t MagAlphaGen7::getZero(){
     bool error, inversion;

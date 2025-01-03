@@ -52,7 +52,7 @@ typedef enum MagAlphaPartNumber{
     MA750 = 6,      //MA_GEN_1
     MA700A = 7,     //MA_GEN_2
     MA102 = 8,      //MA_GEN_3
-    MA302 = 9,      //MA_GEN_3 
+    MA302 = 9,      //MA_GEN_3
     MA310 = 10,     //MA_GEN_3
     MA330 = 11,     //MA_GEN_3
     MA702 = 12,     //MA_GEN_3

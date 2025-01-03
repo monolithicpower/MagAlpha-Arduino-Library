@@ -32,9 +32,9 @@ public:
     uint8_t writeRegister(uint8_t address, uint8_t value) override;
     void readRegisterBurst(uint8_t address, uint8_t valueArray[], uint16_t numberOfRegister) override;
     void writeRegisterBurst(uint8_t address, uint8_t valueArray[], uint16_t numberOfRegister) override;
-    
+
     //Detect the sensor generation
-    uint16_t detectSensorGeneration() override;
+    //uint16_t detectSensorGeneration() override;
 
     //Set Key Parameters
     uint16_t getZero() override;
