@@ -6,7 +6,7 @@
 #define SPI_CS_PIN              (7)
 #define SPI_SCLK_FREQUENCY      (1000000)
 
-MagAlphaGen6 magalpha;
+MagAlphaGen8 magalpha;
 
 double angle_real, speed;
 uint16_t zero, angle_raw, turn;
