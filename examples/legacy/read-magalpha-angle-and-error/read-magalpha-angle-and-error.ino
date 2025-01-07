@@ -19,11 +19,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   uint16_t angleRaw16;
-  bool error;
+  bool crc_error;
   //Read the angle
-  angleRaw16 = magAlpha.readAngleRaw(&error);
+  angleRaw16 = magAlpha.readAngleRaw(&crc_error);
   Serial.print(angleRaw16, DEC);
-  if (error){
+  if (crc_error){
     Serial.print("\t => Communication Error Detected");
   }
   else{

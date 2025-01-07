@@ -48,11 +48,11 @@ void loop() {
   Serial.println(angleRaw8, DEC);
 
   //Read the angle (16-bit raw angle value) and check the parity bit to detect possible communication error
-  bool error;
-  angleRaw16 = magAlpha.readAngleRaw(&error);
+  bool crc_error;
+  angleRaw16 = magAlpha.readAngleRaw(&crc_error);
   Serial.print("    magAlpha.readAngleRaw16(&error) = ");
   Serial.print(angleRaw16, DEC);
-  if (error == true){
+  if (crc_error){
     Serial.print("\t => Communication error detected");
   }
   else{

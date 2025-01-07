@@ -11,7 +11,7 @@ MagAlphaGen3 magalpha;
 double angle_real;
 uint16_t zero, bct, angle_raw;
 uint8_t register_value[2];
-bool error;
+bool crc_error;
 
 void setup() {
 
@@ -73,8 +73,8 @@ void loop() {
     angle_raw = magalpha.readAngleRaw16();
     Serial.print("Angle raw (16 bits) = ");
     Serial.println(angle_raw, HEX);
-    angle_raw = magalpha.readAngleRaw(&error);
-    if(error) {
+    angle_raw = magalpha.readAngleRaw(&crc_error);
+    if(crc_error) {
         Serial.println("An error occured during readAngleRaw");
     } else {
         Serial.print("readAngleRaw succeded, Angle raw (16 bits) = ");

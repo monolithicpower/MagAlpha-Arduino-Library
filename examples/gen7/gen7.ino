@@ -11,7 +11,7 @@ MagAlphaGen7 magalpha;
 double angle_real, speed;
 uint16_t zero, angle_raw, turn;
 uint8_t register_value[2];
-bool error;
+bool crc_error;
 
 void setup() {
 
@@ -34,21 +34,6 @@ void loop() {
     Serial.println(register_value[0], HEX);
     register_value[0] = magalpha.readRegister(0);
     register_value[0] = magalpha.writeRegister(0, 0x00);
-
-    /*
-    uint16_t readAngleRaw16(bool *error, bool *inversion, bool isShortRead=false);
-    uint16_t readAngleCounter(uint16_t *angle, bool *error, bool *inversion);
-    uint16_t readAngleSpeed(uint16_t *angle, bool *error, bool *inversion);
-    uint16_t readAngleMultiturn(uint16_t *angle, bool *error, bool *inversion);
-    uint16_t readAngleTemperature(uint16_t *angle, bool *error, bool *inversion);
-    uint8_t readRegister(uint8_t address, bool *error, bool *inversion);
-    uint16_t readRegisterBurst(uint8_t address, uint8_t readbackValueArray[], uint16_t numberOfRegister, bool *error, bool *inversion);
-    uint8_t writeRegister(uint8_t address, uint8_t value, bool *error, bool *inversion, bool *wrongHandshaking);
-    void writeRegisterBurst(uint8_t address, uint8_t valueArray[], uint16_t numberOfRegister, bool *error, bool *inversion, bool *wrongHandshaking);
-    void setCrcCheckSetting(bool enable);
-    uint16_t appendCrc4(uint16_t data);
-    void checkCrc4(uint16_t readData, uint16_t *computedCrc, bool *errorDetected, bool *inversionDetected);
-    */
 
     // Read & Write registers in burst mode
     register_value[0] = 0x55;
@@ -104,8 +89,8 @@ void loop() {
     angle_raw = magalpha.readAngleRaw16();
     Serial.print("Angle raw (16 bits) = ");
     Serial.println(angle_raw, HEX);
-    angle_raw = magalpha.readAngleRaw(&error);
-    if(error) {
+    angle_raw = magalpha.readAngleRaw(&crc_error);
+    if(crc_error) {
         Serial.println("An error occured during readAngleRaw");
     } else {
         Serial.print("readAngleRaw succeded, Angle raw (16 bits) = ");
