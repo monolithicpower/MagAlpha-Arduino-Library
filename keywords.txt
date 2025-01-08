@@ -7,7 +7,14 @@
 #######################################
 
 MagAlpha	KEYWORD1
+MagAlphaSPI	KEYWORD1
 MagAlphaSSI	KEYWORD1
+MagAlphaI2C	KEYWORD1
+MagAlphaGen3	KEYWORD1
+MagAlphaGen4	KEYWORD1
+MagAlphaGen6	KEYWORD1
+MagAlphaGen7	KEYWORD1
+MagAlphaGen8	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

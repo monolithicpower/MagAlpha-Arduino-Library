@@ -1,18 +1,17 @@
 #include <MagAlpha.h>
 
 //Check https://www.arduino.cc/en/reference/SPI for SPI signals connections
-//Connect SSI SSCK to SPI SCLK signal
-//Connect SSI SSD to SPI MISO signal
 
 #define UART_BAUDRATE       115200        //UART data rate in bits per second (baud)
-#define SSI_SSCK_FREQUENCY  1000000       //SSI SSCK Clock frequency in Hz
+#define SPI_SCLK_FREQUENCY  10000000      //SPI SCLK Clock frequency in Hz
+#define SPI_CS_PIN          0             //SPI CS pin
 
-MagAlphaSSI magAlphaSsi;
+MagAlpha magAlpha;
 
 void setup() {
   // put your setup code here, to run once:
-  //Set the SSI SSCK frequency
-  magAlphaSsi.begin(SSI_SSCK_FREQUENCY);
+  //Set the SPI SCLK frequency, SPI Mode and CS pin
+  magAlpha.begin(SPI_SCLK_FREQUENCY, MA_SPI_MODE_3, SPI_CS_PIN);
   //Set the Serial Communication used to report the angle
   Serial.begin(UART_BAUDRATE);
 }
@@ -20,11 +19,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   uint16_t angleRaw16;
-  bool error;
+  bool crc_error;
   //Read the angle
-  angleRaw16 = magAlphaSsi.readAngleRaw(&error);
+  angleRaw16 = magAlpha.readAngleRaw(&crc_error);
   Serial.print(angleRaw16, DEC);
-  if (error){
+  if (crc_error){
     Serial.print("\t => Communication Error Detected");
   }
   else{
