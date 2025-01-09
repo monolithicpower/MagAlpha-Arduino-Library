@@ -77,11 +77,6 @@ void loop() {
     // Clear error flags
     magalpha.clearErrorFlags();
 
-    speed = magalpha.readSpeed();
-    Serial.println(speed);
-    turn = magalpha.readTurn();
-    Serial.println(turn);
-
     // Read angle
     angle_raw = magalpha.readAngleRaw8();
     Serial.print("Angle raw (8 bits) = ");
